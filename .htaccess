@@ -1,0 +1,17 @@
+# Bloqueio de arquivos sensíveis (DirectoryMatch fica no apache vhost — não pode em .htaccess)
+<FilesMatch "\.(env|sql|md|log|lock|service|bak|dist|ini|yml|yaml)$">
+    Require all denied
+</FilesMatch>
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+<Files "composer.json">
+    Require all denied
+</Files>
+
+# Diretórios que nunca devem ser servidos pela web.
+# (os scripts já recusam execução fora do CLI, isto é a segunda camada)
+RedirectMatch 404 ^/walkietalkie/(tests|database|config|classes|websocket|storage|vendor|docker|systemd|android-app|bin)/
+
+# Impede listagem de diretório
+Options -Indexes

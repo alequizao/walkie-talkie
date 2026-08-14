@@ -1,0 +1,29 @@
+{
+  "id": "/walkietalkie/",
+  "name": "Walkie Talkie",
+  "short_name": "WalkieTalkie",
+  "description": "Comunicação em tempo real estilo rádio comunicador profissional.",
+  "version": "1.9.0",
+  "start_url": "/walkietalkie/",
+  "scope": "/walkietalkie/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "lang": "pt-BR",
+  "categories": ["communication", "productivity"],
+  "icons": [
+    {
+      "src": "/walkietalkie/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/walkietalkie/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

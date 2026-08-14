@@ -1,0 +1,15 @@
+FROM php:7.4-cli-alpine
+
+RUN apk add --no-cache bash git curl unzip \
+    && docker-php-ext-install pdo pdo_mysql sockets
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www/html
+COPY . /var/www/html/
+
+RUN composer install --no-dev --optimize-autoloader --no-interaction || true
+
+EXPOSE 8080
+
+CMD ["php", "websocket/server.php"]

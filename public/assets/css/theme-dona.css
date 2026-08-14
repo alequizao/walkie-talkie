@@ -1,0 +1,273 @@
+/* =============================================
+   VOIP DONA — tema claro com a identidade Donattela
+   Carregado DEPOIS de style.css, sobrescrevendo o tema escuro.
+   Paleta e tipografia iguais ao painel (jogos.usegrupodona.com.br).
+   ============================================= */
+
+body.theme-dona {
+    /* Superfícies */
+    --bg:           #FAF7F4;
+    --bg-elev:      #FFFFFF;
+    --bg-elev-2:    #F7EFE8;
+    --border:       rgba(139, 58, 31, 0.16);
+    --text:         #1c1c1e;
+    --text-dim:     #6b574d;
+    --text-faint:   #a3897c;
+
+    /* Marca Donattela */
+    --brand:        #8B3A1F;
+    --brand-light:  #C1693A;
+    --brand-dark:   #5B2818;
+    --cream:        #F2E4D8;
+
+    --accent:       #C1693A;   /* falando / online */
+    --accent-hot:   #8B3A1F;
+    --danger:       #C0392B;
+    --danger-hot:   #9C2A1B;
+    --warning:      #D4894A;
+    --info:         #8B3A1F;
+
+    --shadow-lg:    0 18px 40px -10px rgba(139, 58, 31, 0.35);
+    --shadow-md:    0 4px 16px rgba(139, 58, 31, 0.18);
+
+    --ease-ios: cubic-bezier(.25,.1,.25,1);
+
+    background: linear-gradient(180deg, #FAF7F4 0%, var(--cream) 100%);
+    color: var(--text);
+    font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+    letter-spacing: -.01em;
+    -webkit-font-smoothing: antialiased;
+}
+
+.theme-dona .serif,
+.theme-dona .login-card h1,
+.theme-dona .speaker-name,
+.theme-dona .panel-header h3,
+.theme-dona .attention-card h2,
+.theme-dona .call-card h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144;
+    letter-spacing: -.025em;
+}
+
+/* ============== LOGIN ============== */
+.theme-dona #login-screen {
+    background:
+        radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,.9), transparent 60%),
+        linear-gradient(180deg, #FAF7F4 0%, var(--cream) 100%);
+}
+.theme-dona .login-card .logo { filter: none; }
+.theme-dona .login-card .logo img {
+    height: 92px; width: auto; display: block; margin: 0 auto;
+    filter: drop-shadow(0 8px 28px rgba(139,58,31,.18));
+}
+.theme-dona .login-card h1 { font-size: 32px; color: var(--brand-dark); }
+.theme-dona .app-version { color: var(--text-faint); }
+
+.theme-dona input {
+    background: rgba(255,255,255,.9);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: var(--text);
+}
+.theme-dona input::placeholder { color: var(--text-faint); }
+.theme-dona input:focus { border-color: var(--brand-light); }
+
+.theme-dona .btn-primary {
+    background:
+        radial-gradient(120% 80% at 0% 0%, rgba(255,255,255,.18), transparent 50%),
+        linear-gradient(135deg, var(--brand-light) 0%, var(--brand) 60%, var(--brand-dark) 100%);
+    color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 28px -8px rgba(139,58,31,.45);
+}
+.theme-dona .btn-primary:hover { background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); }
+
+/* ============== HEADER / CARDS ============== */
+.theme-dona .radio-header {
+    background: rgba(255,255,255,.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: .5px solid var(--border);
+}
+.theme-dona .header-center { color: var(--brand-dark); font-weight: 700; }
+.theme-dona .icon-btn { color: var(--brand); }
+.theme-dona .icon-btn:hover { background: rgba(139,58,31,.08); }
+.theme-dona .icon-btn .badge { color: #fff; }
+
+.theme-dona .contacts-body { background: transparent; }
+.theme-dona .channel-card,
+.theme-dona .contacts-list li {
+    background: rgba(255,255,255,.9);
+    border: .5px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 6px 18px -10px rgba(139,58,31,.35);
+}
+.theme-dona .channel-card strong { color: var(--brand-dark); }
+.theme-dona .contacts-section { color: var(--text-faint); }
+
+/* ============== SPEAKER INFO ============== */
+.theme-dona .speaker-info {
+    background: linear-gradient(180deg, rgba(255,255,255,.85) 0%, transparent 100%);
+    border-bottom: .5px solid var(--border);
+}
+.theme-dona .speaker-info.active {
+    background: linear-gradient(180deg, rgba(193,105,58,0.20) 0%, transparent 100%);
+    box-shadow: inset 0 0 60px rgba(193,105,58,0.12);
+}
+.theme-dona .speaker-info.priority {
+    background: linear-gradient(180deg, rgba(212,137,74,0.22) 0%, transparent 100%);
+}
+.theme-dona .speaker-name { color: var(--brand-dark); }
+
+/* ============== FILA ============== */
+.theme-dona .queue-display { background: transparent; }
+.theme-dona .queue-item {
+    background: rgba(255,255,255,.9);
+    border: .5px solid var(--border);
+}
+.theme-dona .queue-item.is-me {
+    background: rgba(193,105,58,0.14);
+    border-color: var(--brand-light);
+    color: var(--brand);
+}
+.theme-dona .queue-item.priority {
+    background: rgba(212,137,74,0.16);
+    border-color: var(--warning);
+    color: #9a5c1c;
+}
+.theme-dona .queue-avatar, .theme-dona .user-avatar { color: #fff; }
+
+/* ============== BOTÃO PTT ============== */
+.theme-dona .ptt-ring {
+    background: conic-gradient(from 0deg, transparent, rgba(139,58,31,0.18), transparent);
+}
+.theme-dona .ptt-inner {
+    background:
+        radial-gradient(120% 80% at 30% 25%, rgba(255,255,255,.9), transparent 55%),
+        linear-gradient(160deg, #FFFFFF 0%, var(--cream) 100%);
+    border: 4px solid rgba(139,58,31,.18);
+    color: var(--brand);
+    box-shadow:
+        inset 0 -10px 30px rgba(139,58,31,.12),
+        inset 0 10px 30px rgba(255,255,255,.9),
+        var(--shadow-lg);
+}
+.theme-dona .ptt-button.pressed .ptt-inner {
+    background:
+        radial-gradient(120% 80% at 30% 25%, rgba(255,255,255,.22), transparent 55%),
+        linear-gradient(135deg, var(--brand-light) 0%, var(--brand) 60%, var(--brand-dark) 100%);
+    border-color: var(--brand);
+    color: #fff;
+    box-shadow:
+        inset 0 -10px 30px rgba(0,0,0,.18),
+        inset 0 10px 30px rgba(255,255,255,.18),
+        0 0 60px rgba(139,58,31,.45),
+        var(--shadow-lg);
+}
+.theme-dona .ptt-button.pressed .ptt-ring {
+    background: conic-gradient(from 0deg, var(--brand), transparent, var(--brand));
+}
+.theme-dona .ptt-button.queued .ptt-inner {
+    background: linear-gradient(135deg, #E0A341 0%, #C1693A 60%, #8a4f1d 100%);
+    border-color: var(--warning);
+    color: #fff;
+}
+.theme-dona .ptt-button.locked .ptt-inner {
+    background: linear-gradient(160deg, #F1E9E3 0%, #E4D6CB 100%);
+    border-color: rgba(139,58,31,.12);
+    color: var(--text-faint);
+}
+.theme-dona .ptt-hint { color: var(--text-dim); }
+
+/* ============== ALERTA ============== */
+.theme-dona .attention-button {
+    background: linear-gradient(135deg, #d44a6b 0%, #a12347 55%, #5f0f28 100%);
+    color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 28px -10px rgba(161,35,71,.5);
+}
+.theme-dona .attention-button:disabled {
+    background: rgba(139,58,31,.08);
+    color: var(--text-faint);
+    box-shadow: none;
+}
+.theme-dona .attention-overlay { background: rgba(60,32,20,.55); }
+.theme-dona .attention-card {
+    background: linear-gradient(180deg, #FFFFFF, var(--cream));
+    border: 2px solid var(--warning);
+    color: var(--text);
+    box-shadow: 0 0 80px rgba(212,137,74,.45), var(--shadow-lg);
+}
+
+/* ============== PAINEL LATERAL ============== */
+.theme-dona .side-panel {
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-left: .5px solid var(--border);
+    box-shadow: -8px 0 32px rgba(139,58,31,.14);
+}
+.theme-dona .users-list li:hover { background: rgba(139,58,31,.06); }
+.theme-dona .panel-hint { color: var(--text-faint); }
+.theme-dona .volume-control { border-top: .5px solid var(--border); }
+
+/* ============== CHAT PRIVADO ============== */
+.theme-dona .private-chat {
+    background: rgba(255,255,255,.97);
+    border: .5px solid var(--border);
+    box-shadow: var(--shadow-lg);
+}
+.theme-dona .pc-header {
+    background: linear-gradient(135deg, var(--brand-light) 0%, var(--brand) 100%);
+    color: #fff;
+}
+.theme-dona .pc-header .icon-btn { color: #fff; }
+.theme-dona .pc-messages { background: var(--cream); }
+.theme-dona .pc-msg.mine   { background: linear-gradient(135deg, var(--brand-light), var(--brand)); color: #fff; }
+.theme-dona .pc-msg.theirs { background: #fff; color: var(--text); border: .5px solid var(--border); }
+.theme-dona .pc-form { background: #fff; border-top: .5px solid var(--border); }
+.theme-dona .pc-send, .theme-dona .pc-rec { color: var(--brand); }
+
+/* ============== CHAMADAS ============== */
+.theme-dona .call-bar {
+    background: linear-gradient(135deg, var(--brand-light), var(--brand));
+    color: #fff;
+}
+.theme-dona .call-incoming { background: rgba(60,32,20,.6); }
+.theme-dona .call-card {
+    background: linear-gradient(180deg, #FFFFFF, var(--cream));
+    color: var(--text);
+    box-shadow: var(--shadow-lg);
+}
+.theme-dona .call-card .call-pulse { color: var(--brand); }
+.theme-dona .call-btn.accept { background: #2f7a4d; color: #fff; }
+.theme-dona .call-btn.decline { background: var(--danger); color: #fff; }
+
+/* ============== BANNERS / TOAST ============== */
+.theme-dona .private-banner,
+.theme-dona .private-incoming {
+    background: rgba(139,58,31,.10);
+    color: var(--brand-dark);
+    border-bottom: .5px solid var(--border);
+}
+.theme-dona .toast {
+    background: rgba(28,28,30,.92);
+    color: #fff;
+    border-radius: 14px;
+}
+
+/* ============== PRIVACIDADE ============== */
+.theme-dona .blur-guard { background: rgba(250,247,244,.75); }
+.theme-dona .blur-guard-card { color: var(--brand); }
+
+/* ============== CRÉDITO ============== */
+.theme-dona .dev-credit {
+    position: fixed; left: 0; right: 0;
+    bottom: calc(var(--safe-bottom) + 10px);
+    text-align: center; font-size: 11px; letter-spacing: .5px;
+    color: rgba(139,58,31,.55);
+    z-index: 5; pointer-events: none;
+}
+.theme-dona .dev-credit a { color: inherit; text-decoration: none; pointer-events: auto; }
+.theme-dona .dev-credit a strong { color: var(--brand); font-weight: 600; }

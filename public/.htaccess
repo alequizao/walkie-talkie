@@ -1,0 +1,56 @@
+# Apache config para /public
+
+DirectoryIndex index.php index.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Permitir api/* diretamente
+    # Demais requisições não-arquivo caem em index.php
+    # Desafio do Let's Encrypt (certbot) nunca entra no roteamento
+    RewriteRule ^\.well-known/ - [L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/api/
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Compressão
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Cache estático
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType image/png "access plus 30 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+    ExpiresByType application/manifest+json "access plus 1 day"
+</IfModule>
+
+# Headers de segurança
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "microphone=(self), camera=()"
+    # Service Worker precisa estar no escopo correto
+    <FilesMatch "service-worker\.js$">
+        Header set Service-Worker-Allowed "/"
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
+</IfModule>
+
+# CORS para API (opcional - ajuste conforme necessário)
+<IfModule mod_headers.c>
+    <FilesMatch "\.(php)$">
+        SetEnvIf Origin "^(https?://[^/]+)$" CORS_ORIGIN=$1
+        Header set Access-Control-Allow-Origin "%{CORS_ORIGIN}e" env=CORS_ORIGIN
+        Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-CSRF-Token"
+        Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+        Header set Access-Control-Allow-Credentials "true"
+    </FilesMatch>
+</IfModule>

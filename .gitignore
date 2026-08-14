@@ -1,0 +1,35 @@
+/vendor/
+/node_modules/
+/.env
+/.env.*
+!/.env.example
+
+/storage/logs/*
+!/storage/logs/.gitkeep
+
+# IDEs
+/.idea/
+/.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.phar
+composer.lock
+
+# Local
+*.local
+*.bak
+*.tmp
+
+# Docker
+.docker-data/
+
+# Dados de cliente / uploads
+uploads/
+storage/audios/
+*.sql.gz
+*_backup_*.sql
+.claude/

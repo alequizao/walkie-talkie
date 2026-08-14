@@ -1,0 +1,33 @@
+# /etc/systemd/system/walkie-ws.service
+#
+# Instalar:
+#   sudo cp systemd/walkie-ws.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now walkie-ws
+#   sudo systemctl status walkie-ws
+#   sudo journalctl -u walkie-ws -f
+
+[Unit]
+Description=Walkie Talkie WebSocket Server (Ratchet)
+After=network.target mysql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/walkie-talkie
+ExecStart=/usr/bin/php /var/www/walkie-talkie/websocket/server.php
+Restart=always
+RestartSec=3
+StandardOutput=append:/var/log/walkie-ws.log
+StandardError=append:/var/log/walkie-ws.log
+
+# Limites e segurança
+LimitNOFILE=65536
+PrivateTmp=true
+ProtectSystem=full
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

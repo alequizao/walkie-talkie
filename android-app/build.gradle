@@ -1,0 +1,4 @@
+// Projeto raiz — declara o plugin do Android (aplicado no módulo :app)
+plugins {
+    id 'com.android.application' version '8.2.2' apply false
+}
