@@ -155,7 +155,7 @@ Feito por **Junior Lima** / Publish Digital.
 
 ## 📸 Tela
 
-[![Walkie Talkie — comunicação por voz em tempo real no navegador (push-to-talk), desenvolvido por Alex Junior (alequizao)](https://image.thum.io/get/width/700/https://publishdev.com.br/walkietalkie/)](https://publishdev.com.br/walkietalkie/)
+[![Walkie Talkie — comunicação por voz em tempo real no navegador (push-to-talk), desenvolvido por Alex Junior (alequizao)](screenshots/tela-principal.png)](https://publishdev.com.br/walkietalkie/)
 
 ---
 
